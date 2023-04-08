@@ -1,0 +1,28 @@
+Sure! Here is a Hummingbot pure market making config for the provided market data:
+
+```yaml
+# Market-specific configuration
+market: \"binance\"
+market_trading_pair: \"ADA-USDT\"
+
+# Order sizing & Spread configuration
+bid_spread: 0.0002
+ask_spread: 0.0002
+order_amount: 100
+
+# Inventory skew configuration
+inventory_skew_enabled: false
+inventory_target_base_pct: 50
+inventory_range_multiplier: 2
+
+# Order override and refresh configuration
+order_refresh_time: 300
+order_refresh_tolerance_pct: 0.5
+order_override: false
+
+# Miscellaneous configuration
+minimum_spread: 0.0001
+should_wait_order_cancel_confirmation: true
+``` 
+
+Please note that this is just an example config and you might need to tweak some of the values based on your specific trading strategy and market conditions.

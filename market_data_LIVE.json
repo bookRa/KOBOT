@@ -1,0 +1,43 @@
+{
+    "ADA/USDT": {
+      "ticker_info": {
+        "symbol": "ADA/USDT",
+        "timestamp": 1680829818005,
+        "datetime": "2023-04-07T01:10:18.005Z",
+        "high": 0.39038,
+        "low": 0.376432,
+        "bid": 0.383806,
+        "bidVolume": null,
+        "ask": 0.383836,
+        "askVolume": null,
+        "vwap": 0.3832824451391044,
+        "open": 0.388265,
+        "close": 0.383619,
+        "last": 0.383619,
+        "previousClose": null,
+        "change": -0.004646,
+        "percentage": -1.19,
+        "average": 0.38595635,
+        "baseVolume": 12366485.88835581,
+        "quoteVolume": 4739856.949067245,
+        "info": {
+          "time": 1680829818005,
+          "symbol": "ADA-USDT",
+          "buy": "0.383806",
+          "sell": "0.383836",
+          "changeRate": "-0.0119",
+          "changePrice": "-0.004646",
+          "high": "0.39038",
+          "low": "0.376432",
+          "vol": "12366485.88835581",
+          "volValue": "4739856.94906724505409",
+          "last": "0.383619",
+          "averagePrice": "0.38595635",
+          "takerFeeRate": "0.001",
+          "makerFeeRate": "0.001",
+          "takerCoefficient": "1",
+          "makerCoefficient": "1"
+        }
+      }
+    }
+  }
