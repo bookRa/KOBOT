@@ -1,0 +1,278 @@
+### Default Configs
+template_version:
+  type: int
+  required: true
+  promptable: false
+  default: 24
+  description: "just set to 24 until something better"
+strategy:
+  type: str
+  required: true
+  promptable: false
+  default: AZ
+  description: "just set to AZ until something better"
+exchange:
+  type: str
+  required: true
+  promptable: false
+  default: kucoin
+  description: "Exchange to use for trading. set to Kucoin for now"
+
+### The promptable configs 
+market:
+  type: str
+  required: true
+  promptable: true
+  default: ADA-USDT
+  description: "Token trading pair for the exchange, e.g. BTC-USDT"
+bid_spread:
+  type: float
+  required: true
+  promptable: true
+  default: 5
+  description: "How far away from mid price to place the bid order. Spread of 1 = 1% away from mid price at that time."
+ask_spread:
+  type: float
+  required: true
+  promptable: true
+  default: 5
+  description: "How far away from mid price to place the ask order. Spread of 1 = 1% away from mid price at that time."
+minimum_spread:
+  type: float
+  required: true
+  promptable: false
+  default: -25
+  description: "How far away from the mid price to cancel active orders"
+order_refresh_time:
+  type: int
+  required: true
+  promptable: true
+  default: 30
+  description: "Time in seconds before cancelling and placing new orders. If the value is 60, the bot cancels active orders and placing new ones after a minute."
+order_amount:
+  type: float
+  required: true
+  promptable: true
+  default: 1
+  description: "Size of your bid and ask order."
+price_ceiling:
+  type: float
+  required: true
+  promptable: true
+  default: -1
+  description: "Enter the price point above which only sell orders will be placed"
+price_floor:
+  type: float
+  required: true
+  promptable: true
+  default: -1
+  description: "Enter the price point below which only buy orders will be placed"
+
+max_order_age:
+  type: int
+  required: true
+  promptable: false
+  default: 1800
+  description: "How often do you want to cancel and replace bids and asks with the same price (in seconds)?"
+order_refresh_tolerance_pct:
+  type: float
+  required: true
+  promptable: false
+  default: 0
+  description: "The spread (from mid price) to defer order refresh process to the next cycle. (Enter 1 to indicate 1%), value below 0, e.g. -1, is to disable this feature - not recommended."
+moving_price_band_enabled:
+  type: bool
+  required: true
+  promptable: false
+  default: false
+  description: "Would you like to enable moving price floor and ceiling? (Yes/No)"
+price_ceiling_pct:
+  type: float
+  required: true
+  promptable: false
+  default: 1
+  description: "Enter the price point above which only sell orders will be placed"
+price_band_refresh_time:
+  type: int
+  required: true
+  promptable: false
+  default: 86400
+  description: "After this amount of time (in seconds), the price bands are reset based on the current price"
+ping_pong_enabled:
+  type: bool
+  required: true
+  promptable: false
+  default: false
+  description: "Would you like to use the ping pong feature and alternate between buy and sell orders after fills?"
+order_levels:
+  type: int
+  required: true
+  promptable: false
+  default: 1
+  description: "How many levels of orders do you want to place on each side of the order book?"
+order_level_amount:
+  type: float
+  required: true
+  promptable: false
+  default: 0
+  description: "Increase or decrease size of consecutive orders after the first order (if order_levels > 1)."
+order_level_spread:
+  type: float
+  required: true
+  promptable: false
+  default: 0
+  description: "Order price space between orders (if order_levels > 1)."
+inventory_skew_enabled:
+  type: bool
+  required: true
+  promptable: false
+  default: false
+  description: "Would you like to enable Inventory skew feature?"
+inventory_target_base_pct:
+  type: float
+  required: true
+  promptable: false
+  default: 50
+  description: "Target base asset inventory percentage target to be maintained (for Inventory skew feature)."
+inventory_range_multiplier:
+  type: float
+  required: true
+  promptable: false
+  default: 50
+  description: "The range around the inventory target base percent to maintain, expressed in multiples of total order size (for inventory skew feature)."
+inventory_price:
+  type: float
+  required: true
+  promptable: false
+  default: 1
+  description: "Initial price of the base asset. Note: this setting is not affects anything, the price is kept in the database."
+filled_order_delay:
+  type: int
+  required: true
+  promptable: false
+  default: 60
+  description: "How long to wait before placing the next order in case your order gets filled."
+hanging_orders_enabled:
+  type: bool
+  required: true
+  promptable: false
+  default: false
+  description: "Whether to stop cancellations of orders on the other side (of the order book), when one side is filled (hanging orders feature) (true/false)."
+hanging_orders_cancel_pct:
+  type: float
+  required: true
+  promptable: false
+  default: 10
+  description: "Spread (from mid price, in percentage) hanging orders will be canceled (Enter 1 to indicate 1%)"
+order_optimization_enabled:
+  type: bool
+  required: true
+  promptable: false
+  default: false
+  description: "Whether to enable order optimization feature (best bid ask jumping)."
+ask_order_optimization_depth:
+  type: int
+  required: true
+  promptable: false
+  default: 0
+  description: "How deep do you want to go into the order book for calculating the top ask, ignoring dust orders on the top (expressed in base asset amount)?"
+bid_order_optimization_depth:
+  type: int
+  required: true
+  promptable: false
+  default: 0
+  description: "How deep do you want to go into the order book for calculating the top bid, ignoring dust orders on the top (expressed in base asset amount)?"
+price_source:
+  type: str
+  required: false
+  promptable: false
+  default: current_market
+  description: "Price source to use for pricing orders (mid_price, last_price, best_bid, best_ask)."
+price_type:
+  type: str
+  required: false
+  promptable: false
+  default: mid_price
+  description: "Which price type to use? (mid_price/last_price/last_own_trade_price/best_bid/best_ask/inventory_cost)"
+price_source_exchange:
+  type: str
+  required: false
+  promptable: false
+  default: null
+  description: "Enter external price source exchange name"
+price_source_market:
+  type: str
+  required: false
+  promptable: false
+  default: null
+  description: "A trading pair for the external exchange, e.g. BTC-USDT (for external exchange pricing source)."
+price_source_custom_api:
+  type: str
+  required: false
+  promptable: false
+  default: null
+  description: "Enter pricing API URL"
+custom_api_update_interval:
+  type: int
+  required: false
+  promptable: false
+  default: 60
+  description: "Enter custom API update interval in seconds"
+add_transaction_costs:
+  type: bool
+  required: false
+  promptable: false
+  default: false
+  description: "Whether to enable adding transaction costs to order price calculation (true/false)."
+take_if_crossed:
+  type: bool
+  required: false
+  promptable: false
+  default: false
+  description: "Take order if they cross order book when external price source is enabled"
+
+### Misc
+should_wait_order_cancel_confirmation:
+  type: bool
+  required: false
+  promptable: false
+  default: true
+  description: "If the strategy should wait to receive cancellations confirmation before creating new orders during refresh time"
+
+### Order override -concerned
+order_override:
+  type: bool
+  required: false
+  promptable: false
+  default: false
+  description: "Override order price if it is not within the order book"
+split_order_levels_enabled:
+  type: bool
+  required: false
+  promptable: false
+  default: false
+  description: "Whether to enable splitting order levels (true/false)."
+bid_order_level_spreads:
+  type: list
+  required: false
+  promptable: false
+  default: []
+  description: "Enter bid order level spreads (in percentage)."
+ask_order_level_spreads:
+  type: list
+  required: false
+  promptable: false
+  default: []
+  description: "Enter ask order level spreads (in percentage)."
+bid_order_level_amounts:
+  type: list
+  required: false
+  promptable: false
+  default: []
+  description: "Enter bid order level amounts."
+ask_order_level_amounts:
+  type: list
+  required: false
+  promptable: false
+  default: []
+  description: "Enter ask order level amounts."
