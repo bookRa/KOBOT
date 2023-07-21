@@ -44,6 +44,12 @@ price_floor_pct: null
 price_band_refresh_time: null
 # Whether to alternate between buys and sells (true/false).
 ping_pong_enabled: null
+# Number of levels of orders to place on each side of the order book.
+order_levels: null
+# Increase or decrease size of consecutive orders after the first order (if order_levels > 1).
+order_level_amount: null
+# Order price space between orders (if order_levels > 1).
+order_level_spread: null
 # Whether to enable Inventory skew feature (true/false).
 inventory_skew_enabled: null
 # Target base asset inventory percentage target to be maintained (for Inventory skew feature).
@@ -53,12 +59,6 @@ inventory_target_base_pct: null
 inventory_range_multiplier: null
 # Initial price of the base asset. Note: this setting is not affects anything, the price is kept in the database.
 inventory_price: null
-# Number of levels of orders to place on each side of the order book.
-order_levels: null
-# Increase or decrease size of consecutive orders after the first order (if order_levels > 1).
-order_level_amount: null
-# Order price space between orders (if order_levels > 1).
-order_level_spread: null
 # How long to wait before placing the next order in case your order gets filled.
 filled_order_delay: null
 # Whether to stop cancellations of orders on the other side (of the order book),
@@ -72,8 +72,6 @@ order_optimization_enabled: null
 ask_order_optimization_depth: null
 # The depth in base asset amount to be used for finding top bid (for order optimization mode).
 bid_order_optimization_depth: null
-# Whether to enable adding transaction costs to order price calculation (true/false).
-add_transaction_costs: null
 # The price source (current_market/external_market/custom_api).
 price_source: null
 # The price type (mid_price/last_price/last_own_trade_price/best_bid/best_ask/inventory_cost).
@@ -86,6 +84,8 @@ price_source_market: null
 price_source_custom_api: null
 # An interval time in second to update the price from custom api (for custom_api pricing source).
 custom_api_update_interval: null
+# Whether to enable adding transaction costs to order price calculation (true/false).
+add_transaction_costs: null
 #Take order if they cross order book when external price source is enabled
 take_if_crossed: null
 # Use user provided orders to directly override the orders placed by order_amount and order_level_parameter
